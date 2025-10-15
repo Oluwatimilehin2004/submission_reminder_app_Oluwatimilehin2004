@@ -45,7 +45,7 @@ populate_files(){
 #!/bin/bash
 echo "Reminder application would run here"
 # Your actual reminder.sh content will go here
-EOF
+STOP
 
 # Create functions.sh content
     cat > modules/functions.sh << 'STOP'
@@ -151,30 +151,7 @@ check_permissions() {
     fi
 }
 
-# Function to load configuration
-load_config() {
-    if [[ -f "$CONFIG_FILE" ]]; then
-        source "$CONFIG_FILE"
-        echo " Loaded configuration:"
-        echo "   - Assignment: $ASSIGNMENT"
-        echo "   - Due Date: $DUE_DATE"
-        echo ""
-    else
-        echo " Error: Configuration file not found at $CONFIG_FILE"
-        exit 1
-    fi
-}
-
-# Function to display system info
-display_system_info() {
-    echo " System Information:"
-    echo "   - Base Directory: $BASE_DIR"
-    echo "   - Config File: $CONFIG_FILE"
-    echo "   - App Script: $APP_SCRIPT"
-    echo ""
-}
-
-# Function to start the application
+#This function starts the application
 start_application() {
     echo " Starting Submission Reminder Application..."
     echo ""
@@ -207,15 +184,10 @@ main() {
     echo " Checking file permissions..."
     check_permissions
 
-    echo "   Loading configuration..."
-    load_config
-
-    display_system_info
-
     start_application
 }
 
-# Error handling
+#Error handling
 handle_error() {
     echo " An error occurred in startup.sh at line $1"
     exit 1
@@ -224,7 +196,7 @@ handle_error() {
 # Set error trap
 trap 'handle_error $LINENO' ERR
 
-#Run main function
+#Runs main function
 main "$@"
 STOP
 

@@ -1,11 +1,4 @@
 #!/bin/bash
-echo "Reminder application would run here"
-# Your actual reminder.sh content will go here
-EOF
-
-# Create functions.sh content
-    cat > modules/functions.sh << 'STOP'
-#!/bin/bash
 
 # Function to read submissions file and output students who have not submitted
 function check_submissions {

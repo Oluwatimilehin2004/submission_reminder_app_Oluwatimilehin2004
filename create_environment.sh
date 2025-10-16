@@ -218,20 +218,25 @@ echo "======================================="
 loading_ani "Processing"
 
 create_folder_structure(){
-	BASE_NAME="submission_reminder_$student_name"
-	mkdir -p $BASE_NAME
-	if [[ -d "$BASE_NAME" ]]; then
-		loading_ani "Checking for $student_name folder"
-		echo "$BASE_NAME found!"
-		loading_ani "Navigating into it"
-		cd $BASE_NAME
-		loading_ani "Welcome to your Submission Reminder Folder(SRF)"
-		SSR_setup
-		populate_files
-		echo "Operation successful!!!"
-	else
-		echo "$BASE_NAME folder doesn't exist"
-		exit
+	if [[ -z $student_name ]];then
+		echo "Name cannot be empty, restart operation"
+		exit 1
+	else 
+		BASE_NAME="submission_reminder_$student_name"
+		mkdir -p $BASE_NAME
+		if [[ -d "$BASE_NAME" ]]; then
+			loading_ani "Checking for $student_name folder"
+			echo "$BASE_NAME found!"
+			loading_ani "Navigating into it"
+			cd $BASE_NAME
+			loading_ani "Welcome to your Submission Reminder Folder(SRF)"
+			SSR_setup
+			populate_files
+			echo "Operation successful!!!"
+		else
+			echo "$BASE_NAME folder doesn't exist"
+			exit
+		fi
 	fi
 }
 

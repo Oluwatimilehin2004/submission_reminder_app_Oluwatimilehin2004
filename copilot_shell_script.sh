@@ -12,7 +12,7 @@ BASE_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 for APP_DIR in "$BASE_DIR"/submission_reminder_*; do
     if [[ -d "$APP_DIR" ]]; then
         CONFIG_FILE="$APP_DIR/config/config.env"
-        STARTUP_SCRIPT="$APP_DIR/startup.sh"
+        STARTUP_SCRIPT="startup.sh"
     fi
 done
 
@@ -39,10 +39,10 @@ update_assignment() {
     echo "-------------------"
 
     #Prompts user for their new assignment name
-    read -p "Enter the new assignment name: " new_assignment
+    read -p "Enter the new assignment name(Git, Shell Basics, Shell Navigation, etc: " new_assignment
 
     #Replaces line 2 with the new assignment value
-    sed -i "2s/.*/ASSIGNMENT=$new_assignment/" "$CONFIG_FILE"
+    sed -i "s/ASSIGNMENT=\".*\"/ASSIGNMENT=\"$new_assignment\"/" "$CONFIG_FILE"
 
     if [[ $? -eq 0 ]]; then
         echo "Assignment updated successfully!"
@@ -52,11 +52,13 @@ update_assignment() {
         exit 1
     fi
 
+    cd $APP_DIR
     # Rerun startup.sh after success
     if [[ -f "$STARTUP_SCRIPT" ]]; then
         echo ""
         echo "Running startup.sh for new assignment check..."
         bash "$STARTUP_SCRIPT"
+	cd ..
     else
         echo "⚠️ startup.sh not found in $BASE_DIR. Skipping startup run."
     fi

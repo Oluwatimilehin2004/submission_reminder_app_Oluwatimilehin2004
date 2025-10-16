@@ -43,8 +43,20 @@ populate_files(){
 # Create reminder.sh content
     cat > app/reminder.sh << 'STOP'
 #!/bin/bash
-echo "Reminder application would run here"
-# Your actual reminder.sh content will go here
+
+# Source environment variables and helper functions
+source ./config/config.env
+source ./modules/functions.sh
+
+# Path to the submissions file
+submissions_file="./assets/submissions.txt"
+
+# Print remaining time and run the reminder function
+echo "Assignment: $ASSIGNMENT"
+echo "Days remaining to submit: $DAYS_REMAINING days"
+echo "--------------------------------------------"
+
+check_submissions $submissions_file
 STOP
 
 # Create functions.sh content

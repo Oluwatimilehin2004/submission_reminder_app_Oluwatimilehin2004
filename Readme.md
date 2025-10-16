@@ -104,5 +104,3 @@ This README:
 - Includes **folder structures, workflow, scripts, and lessons learned**.  
 - Uses **emojis, headings, and quotes** to make it engaging.  
 
----
-

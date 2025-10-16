@@ -1,8 +1,6 @@
 # Submission Reminder App
 
-Welcome to the **Submission Reminder App** — your friendly digital assistant for keeping track of student submissions! This project was created as part of an assignment workflow where I explored **Bash scripting, automation, and Git branching** in a practical, hands-on way.  
-
----
+Welcome to the **Submission Reminder App** your friendly digital assistant for keeping track of student submissions! This project was created as part of an assignment workflow where I explored **Bash scripting, automation, and Git branching** in a practical, hands-on way.  
 
 ## What I Built
 
@@ -28,7 +26,6 @@ startup.sh
 
 - Essentially, it ensures the project is **ready to go instantly**, no tedious setup required.
 
----
 
 ### 2️ `copilot_shell_script.sh`
 - This is the **user-friendly control center**.  
@@ -36,7 +33,6 @@ startup.sh
 - Once updated, it automatically runs the `startup.sh` script to **check which students have not submitted their assignments**.  
 - This script is flexible enough to handle **multiple sub-apps**, so it works whether you have one or many classes/projects to track.
 
----
 
 ### 3️ Git Branching Workflow
 To keep things **organized and professional**, I followed a **branching workflow**:
@@ -52,7 +48,6 @@ To keep things **organized and professional**, I followed a **branching workflow
      - `README.md`  
    - This branch is kept clean, professional, and ready for submission.
 
----
 
 ## How It Works
 
@@ -97,7 +92,6 @@ submission_reminder_app_Oluwatimilehin2004/
 └── README.md
 
 All other rough work, test folders, and experimental files live only in the feature branch (feature/setup), keeping the main branch clean.
----
 
 This README:  
 - Explains **everything you did** in a narrative, human-friendly way.  

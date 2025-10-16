@@ -12,7 +12,7 @@ BASE_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 for APP_DIR in "$BASE_DIR"/submission_reminder_*; do
     if [[ -d "$APP_DIR" ]]; then
         CONFIG_FILE="$APP_DIR/config/config.env"
-        STARTUP_SCRIPT="$APP_DIR/startup.sh"
+        STARTUP_SCRIPT="startup.sh"
     fi
 done
 
@@ -55,7 +55,6 @@ update_assignment() {
         	echo "Failed to update assignment. Please check the file permissions."
         	exit 1
     	fi
-
 
         # Rerun startup.sh after success
         if [[ -f "$STARTUP_SCRIPT" ]]; then
